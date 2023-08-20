@@ -11,6 +11,14 @@ void call_io(){
     }
 };
 
+double call_compute(){
+    int sum=0;
+    for(int i=0; i < SIZE; i++){
+        sum += i;
+    }
+    return sum;
+}
+
 int main(int argc,char** argv){
     clock_t start,end;
     double time;
@@ -19,7 +27,14 @@ int main(int argc,char** argv){
     call_io();
     end=clock();
     time = ((double)end-start)/CLOCKS_PER_SEC;
-    printf("time used in io is %.6f\n",time);
+    printf("time used in I/O is %.6f\n",time);
+
+    start=clock();
+    double result=call_compute();
+    end=clock();
+    time = ((double)end-start)/CLOCKS_PER_SEC;
+    printf("time used in Computation is %.6f\n",time);
+
 
     return 0;
 }
